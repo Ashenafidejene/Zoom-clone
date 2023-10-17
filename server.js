@@ -24,18 +24,19 @@ app.get("/:room", (req, res) => {
 io.on("connection", (socket) => {
   socket.on("join-room", (roomId, userId) => {
     socket.join(roomId);
-    socket.to(roomId).broadcast.emit("user-connected", userId);
-
+    // socket.to(roomId).broadcast.emit("user-connected", userId);
+    //socket.broadcast.to(roomId).emit("user-connected", userId);
+    io.to(roomId).emit("user-connected", userId);
     //messages
     socket.on("message", (message) => {
       io.to(roomId).emit("createMessage", message);
     });
 
     socket.on("disconnect", () => {
-      socket.to(roomId).broadcast.emit("user-disconnected", userId);
+       socket.broadcast.to(roomId).emit("user-disconnected", userId);
     });
   });
 });
 
 
-server.listen(process.env.PORT || 3030);
+server.listen(process.env.PORT || 3000);

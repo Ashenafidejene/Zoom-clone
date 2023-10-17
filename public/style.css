@@ -12,6 +12,8 @@ body {
     height: 300px;
     width: 300px;
     object-fit: cover;
+    margin-left: 20px;
+    margin-right: 20px;
   }
   
   .main {
@@ -93,7 +95,7 @@ body {
   }
   
   .messages{
-      color: white;
+      color: black;
       list-style: none;
   }
   
@@ -106,7 +108,7 @@ body {
       flex-grow: 1;
       background-color: transparent;
       border: none;
-      color: #F5F5F5;
+      color: black;
   }
   
   .leave_meeting {
@@ -116,4 +118,6 @@ body {
   .unmute, .stop {
       color: #CC3B33;
   }
-  
+  h6{
+    color: black;
+  }
